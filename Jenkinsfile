@@ -9,7 +9,6 @@ node {
    // -- Configura variables
    echo 'Configurando variables'
    echo "var env.mvn='${env.mvn}'"
-   var env.mvn='${env.mvn}'
    env.PATH = "${env.mvn}:${env.PATH}"
    
    echo "var env.PATH='${env.mvn}'"
