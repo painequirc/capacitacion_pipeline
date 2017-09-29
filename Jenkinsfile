@@ -8,11 +8,11 @@ node {
    
    // -- Configura variables
    echo 'Configurando variables'
-   def mvnHome = tool 'M3'
    echo "var env.mvn='${env.mvn}'"
-   env.PATH = "${mvnHome}/bin:${env.PATH}"
-   echo "var mvnHome='${mvnHome}'"
-   echo "var env.PATH='${env.PATH}'"
+   var env.mvn='${env.mvn}'
+   env.PATH = "${env.mvn}:${env.PATH}"
+   
+   echo "var env.PATH='${env.mvn}'"
    
    // -- Descarga código desde SCM
    echo 'Descargando codigo de SCM'
@@ -22,6 +22,8 @@ node {
    // -- Compilando
    echo 'Compilando aplicacion'
    bat 'mvn clean compile'
+   
+   
    
    // ------------------------------------
    // -- ETAPA: Test
